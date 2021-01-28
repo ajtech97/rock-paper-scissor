@@ -135,10 +135,10 @@ const game = () => {
         
         const winner = document.querySelector(".winner");
 
-        if(pScore === 2){
+        if(pScore === 10){
             winner.textContent = "Hurray Player Wins ✨";            
         }
-        else if(cScore === 2){
+        else if(cScore === 10){
             winner.textContent = "Hurray Computer Wins ✨";
                 
         }
