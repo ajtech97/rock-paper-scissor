@@ -18,6 +18,7 @@ const game = () => {
 
     //Play match
     const playMatch = () =>{
+
         const options = document.querySelectorAll(".options button");
         const playerHand = document.querySelector(".palyer-hand");
         const computerHand = document.querySelector(".computer-hand");
@@ -48,8 +49,9 @@ const game = () => {
                     //Updated images
                     playerHand.src = `./assets/${this.textContent}.png`;
                     computerHand.src = `./assets/${computerChoice}.png`;
+
                 },2000)
-                
+
                 //Animation
                 playerHand.style.animation = "shakePlayer 2s ease";
                 computerHand.style.animation = "shakeComputer 2s ease";
@@ -62,8 +64,13 @@ const game = () => {
     const updateScore = () =>{
         const playerScore = document.querySelector(".player-score p");
         const computerScore = document.querySelector(".computer-score p");
+        
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
+
+        finalWinner();
+
+        
     }
 
     //Compare hands
@@ -87,6 +94,8 @@ const game = () => {
                 winner.textContent = "Computer wins";
                 cScore++;
                 updateScore();
+                
+                finalWinner();
                 return;
             }
         }
@@ -122,9 +131,24 @@ const game = () => {
         }
     }
 
+    const finalWinner = () =>{
+        
+        const winner = document.querySelector(".winner");
+
+        if(pScore === 2){
+            winner.textContent = "Hurray Player Wins ✨";            
+        }
+        else if(cScore === 2){
+            winner.textContent = "Hurray Computer Wins ✨";
+                
+        }
+        
+    }
+
     //Calls inner function
     startGame();
     playMatch();
+
 }
 
 //Start the game function
